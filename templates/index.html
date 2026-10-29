@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% set title = "devmatei blog | code, tech & vibes" %}
+{% set description = "thoughts on code, tech, homelabs, and whatever else is on my mind. no filter, just vibes." %}
+{% set url = "https://blog.devmatei.com/" %}
+{% set og_type = "website" %}
+
+{% block jsonld %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://blog.devmatei.com/#website",
+      "url": "https://blog.devmatei.com/",
+      "name": "devmatei blog",
+      "description": "thoughts on code, tech, homelabs, and whatever else is on my mind. no filter, just vibes.",
+      "inLanguage": "en",
+      "publisher": { "@id": "https://devmatei.com/#person" }
+    },
+    {
+      "@type": "Blog",
+      "@id": "https://blog.devmatei.com/#blog",
+      "url": "https://blog.devmatei.com/",
+      "name": "devmatei blog",
+      "description": "thoughts on code, tech, homelabs, and whatever else is on my mind. no filter, just vibes.",
+      "inLanguage": "en",
+      "author": { "@id": "https://devmatei.com/#person" },
+      "publisher": { "@id": "https://devmatei.com/#person" },
+      "isPartOf": { "@id": "https://blog.devmatei.com/#website" }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://devmatei.com/#person",
+      "name": "matei",
+      "alternateName": "devmatei",
+      "url": "https://devmatei.com",
+      "sameAs": ["https://github.com/devmatei", "https://x.com/thedevmatei"]
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+<header class="header">
+    <div class="title">
+        <h1>devmatei's blog</h1>
+        <h3>sharing my thoughts about everything</h3>
+    </div>
+    <nav class="nav" aria-label="Site">
+        <a href="https://devmatei.com">devmatei.com</a>
+        <a href="/rss.xml">rss</a>
+    </nav>
+</header>
+
+<main class="posts">
+    <h2 class="posts-label">posts</h2>
+    {% for post in posts %}
+    <a class="post-row" href="/blog/{{ post.slug }}">
+        <time class="post-date" datetime="{{ post.date_iso }}">{{ post.date_display }}</time>
+        <div>
+            <div class="post-title">{{ post.title }}</div>
+            <div class="post-desc">{{ post.description }}</div>
+            <div class="post-meta">{{ post.read_time }} min read · <span class="post-tags">{{ post.tags | join(", ") }}</span></div>
+        </div>
+    </a>
+    {% endfor %}
+</main>
+{% endblock %}

@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{ title }}</title>
+    <meta name="description" content="{{ description }}" />
+    <meta name="author" content="matei" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="{{ url }}" />
+
+    <!-- open graph -->
+    <meta property="og:type" content="{{ og_type }}" />
+    <meta property="og:url" content="{{ url }}" />
+    <meta property="og:title" content="{{ title }}" />
+    <meta property="og:description" content="{{ description }}" />
+    <meta property="og:site_name" content="devmatei blog" />
+    <meta property="og:locale" content="en_US" />
+    {% block og_extra %}{% endblock %}
+
+    <!-- twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="@thedevmatei" />
+    <meta name="twitter:creator" content="@thedevmatei" />
+    <meta name="twitter:title" content="{{ title }}" />
+    <meta name="twitter:description" content="{{ description }}" />
+
+    <!-- theme -->
+    <meta name="theme-color" content="#1e1b2e" />
+    <meta name="color-scheme" content="dark light" />
+
+    <!-- identity -->
+    <link rel="me" href="https://github.com/devmatei" />
+    <link rel="me" href="https://x.com/thedevmatei" />
+    <link rel="me" href="https://devmatei.com" />
+    <link rel="alternate" type="application/rss+xml" title="devmatei blog" href="/rss.xml" />
+
+    <!-- structured data -->
+    {% block jsonld %}{% endblock %}
+
+    <script defer src="https://analytics.devmatei.com/script.js" data-website-id="e151ae3c-b0d1-4109-be00-4f198b6fdc06"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Andika:wght@400;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/css/main.css" />
+</head>
+<body>
+    <div class="content">
+        {% block content %}{% endblock %}
+
+        <footer class="footer">
+            <span>made by matei · 2026</span>
+            <span aria-hidden="true">·</span>
+            <a href="https://devmatei.com">devmatei.com</a>
+            <span aria-hidden="true">·</span>
+            <a href="https://github.com/devmatei">github</a>
+            <span aria-hidden="true">·</span>
+            <a href="https://x.com/thedevmatei">x</a>
+            <span aria-hidden="true">·</span>
+            <a href="/rss.xml">rss</a>
+        </footer>
+    </div>
+</body>
+</html>

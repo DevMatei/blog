@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>devmatei blog</title>
+    <link>https://blog.devmatei.com/</link>
+    <description>thoughts on code, tech, homelabs, and whatever else is on my mind. no filter, just vibes.</description>
+    <language>en</language>
+    <atom:link href="https://blog.devmatei.com/rss.xml" rel="self" type="application/rss+xml" />
+    {% for post in posts %}
+    <item>
+      <title>{{ post.title }}</title>
+      <link>https://blog.devmatei.com/blog/{{ post.slug }}</link>
+      <guid>https://blog.devmatei.com/blog/{{ post.slug }}</guid>
+      <pubDate>{{ post.date_rfc822 }}</pubDate>
+      <description>{{ post.description }}</description>
+    </item>
+    {% endfor %}
+  </channel>
+</rss>
